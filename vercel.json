@@ -1,6 +1,6 @@
 {
   "framework": "static",
   "buildCommand": "",
-  "outputDirectory": ".",
+  "outputDirectory": "public",
   "cleanUrls": true
 }
