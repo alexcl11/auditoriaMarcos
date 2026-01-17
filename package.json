@@ -1,0 +1,19 @@
+{
+  "name": "solar-audit-landing",
+  "version": "1.0.0",
+  "description": "Landing page para mini auditoría de placas solares",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server",
+    "build": "echo 'No build needed for static site'"
+  },
+  "keywords": [
+    "solar",
+    "auditoría",
+    "landing-page",
+    "tailwind"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {}
+}

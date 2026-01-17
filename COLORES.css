@@ -1,0 +1,11 @@
+/* ===========================================
+   PALETAS DE COLORES PREDEFINIDAS
+   Descomenta la que quieras usar
+   =========================================== */
+
+/* PALETA ACTUAL (Púrpura/Azul) */
+:root {
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-accent: #ff6b6b;
+}

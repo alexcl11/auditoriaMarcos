@@ -1,0 +1,409 @@
+<!-- ===========================================
+     INTEGRACIONES - EJEMPLOS Y SNIPPETS
+     =========================================== -->
+
+<!-- 
+Este archivo contiene ejemplos de código para integrar
+servicios externos en tu landing page.
+
+IMPORTANTE: Copia y adapta el código que necesites.
+-->
+
+
+<!-- ==========================================
+     1. GOOGLE ANALYTICS
+     ========================================== -->
+
+<!-- Pega esto en el <head> de index.html -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID'); // Reemplaza GA_MEASUREMENT_ID
+</script>
+
+<!-- Cómo obtener tu ID:
+    1. Ve a https://analytics.google.com
+    2. Crea una cuenta
+    3. Añade tu web
+    4. Copia el ID (empieza con G-XXXXXXXX)
+    5. Reemplaza GA_MEASUREMENT_ID en el código
+-->
+
+
+<!-- ==========================================
+     2. FACEBOOK PIXEL
+     ========================================== -->
+
+<!-- Pega esto en el <head> de index.html -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // Reemplaza YOUR_PIXEL_ID
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+
+<!-- Cómo obtener tu Pixel ID:
+    1. Ve a https://business.facebook.com
+    2. Ve a Pixels en el menú
+    3. Crea un nuevo Pixel o usa uno existente
+    4. Copia el Pixel ID
+    5. Reemplaza YOUR_PIXEL_ID en el código
+-->
+
+
+<!-- ==========================================
+     3. INTERCOM (CHAT EN VIVO)
+     ========================================== -->
+
+<!-- Pega esto antes de </body> en index.html -->
+<script>
+    window.intercomSettings = {
+        api_base: "https://api-iam.intercom.io",
+        app_id: "YOUR_APP_ID" // Reemplaza YOUR_APP_ID
+    };
+</script>
+<script>
+    (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');return;}var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/YOUR_APP_ID'; // Reemplaza YOUR_APP_ID
+    var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}})()
+</script>
+
+<!-- Cómo configurar:
+    1. Ve a https://www.intercom.com
+    2. Crea una cuenta
+    3. Obtén tu App ID
+    4. Reemplaza YOUR_APP_ID en ambos lugares
+-->
+
+
+<!-- ==========================================
+     4. HOTJAR (ANALYTICS DE COMPORTAMIENTO)
+     ========================================== -->
+
+<!-- Pega esto en el <head> de index.html -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:HOTJAR_ID,hjsv:6}; // Reemplaza HOTJAR_ID
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+<!-- Cómo obtener tu ID:
+    1. Ve a https://www.hotjar.com
+    2. Crea una cuenta
+    3. Obtén tu Site ID
+    4. Reemplaza HOTJAR_ID
+-->
+
+
+<!-- ==========================================
+     5. FORMSPREE (GUARDAR FORMULARIOS)
+     ========================================== -->
+
+<!-- Cambia el formulario de index.html así:
+
+ANTES:
+<form id="auditForm" action="#" method="POST">
+
+DESPUÉS:
+-->
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <!-- El resto igual -->
+</form>
+
+<!-- Cómo configurar:
+    1. Ve a https://formspree.io
+    2. Crea una cuenta
+    3. Añade tu dominio
+    4. Obtén tu Form ID
+    5. Reemplaza YOUR_FORM_ID
+    6. Recibirás emails con los datos
+-->
+
+
+<!-- ==========================================
+     6. TYPEFORM (FORMULARIOS AVANZADOS)
+     ========================================== -->
+
+<!-- Para reemplazar el formulario HTML con Typeform:
+     Pega antes de </body> en index.html
+-->
+<script src="//embed.typeform.com/next/embed.js"></script>
+<div 
+    data-tf-live="01EXAMPLE" <!-- Reemplaza 01EXAMPLE con tu ID -->
+></div>
+
+<!-- Cómo obtener tu ID:
+    1. Ve a https://typeform.com
+    2. Crea un formulario
+    3. Ve a Share
+    4. Copia el ID (después de "typeform.com/")
+-->
+
+
+<!-- ==========================================
+     7. CALENDLY (AGENDAR LLAMADAS)
+     ========================================== -->
+
+<!-- Agrega un botón que abre Calendly -->
+<a 
+    href="https://calendly.com/YOUR_USERNAME" 
+    target="_blank" 
+    class="btn-primary"
+>
+    Agendar llamada
+</a>
+
+<!-- O integra el widget directamente -->
+<div 
+    class="calendly-inline-widget" 
+    data-url="https://calendly.com/YOUR_USERNAME"
+    style="min-width:320px;height:630px;"
+></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- Cómo configurar:
+    1. Ve a https://calendly.com
+    2. Configura tu calendario
+    3. Copia tu username
+    4. Reemplaza YOUR_USERNAME
+-->
+
+
+<!-- ==========================================
+     8. STRIPE / PAYPAL (PAGOS)
+     ========================================== -->
+
+<!-- Para agregar pagos, modifica el botón así:
+
+ANTES (demo):
+<button>Solicitar mi auditoría por 9€</button>
+
+DESPUÉS (Stripe):
+-->
+<button id="checkout-button">Solicitar mi auditoría por 9€</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    var stripe = Stripe('YOUR_PUBLISHABLE_KEY'); // Reemplaza
+    
+    document.getElementById('checkout-button').addEventListener('click', async function() {
+        const response = await fetch('/create-checkout-session', {
+            method: 'POST',
+        });
+        const session = await response.json();
+        await stripe.redirectToCheckout({sessionId: session.id});
+    });
+</script>
+
+<!-- Cómo configurar:
+    1. Ve a https://stripe.com
+    2. Crea una cuenta
+    3. Obtén tu Publishable Key
+    4. Necesitarás un servidor backend (Node.js, Python, etc)
+    5. Guía completa: https://stripe.com/docs/checkout
+-->
+
+
+<!-- ==========================================
+     9. WHATSAPP BUSINESS API
+     ========================================== -->
+
+<!-- Botón para enviar a WhatsApp -->
+<a 
+    href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20mi%20auditor%C3%ADa%20por%209%E2%82%AC" 
+    target="_blank"
+    class="btn-primary"
+>
+    Contactar por WhatsApp
+</a>
+
+<!-- JavaScript para generar el link dinámicamente -->
+<script>
+    function sendWhatsApp() {
+        const name = document.getElementById('name').value;
+        const message = `Hola, soy ${name} y quiero la auditoría por 9€`;
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/34XXXXXXXXX?text=${encodedMessage}`;
+        window.open(whatsappURL, '_blank');
+    }
+</script>
+
+<!-- Cómo configurar:
+    1. Obtén tu número de WhatsApp (con código país)
+    2. Reemplaza 34XXXXXXXXX
+    3. El 34 es el código de España, cambia si es otro país
+    4. El mensaje se urlencodea automáticamente
+-->
+
+
+<!-- ==========================================
+     10. MAILCHIMP (EMAIL MARKETING)
+     ========================================== -->
+
+<!-- Formulario para suscribirse a newsletter -->
+<div id="mc_embed_signup">
+    <form action="https://YOUR_LIST.us1.list-manage.com/subscribe/post?u=YOUR_USER_ID&amp;id=YOUR_LIST_ID" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <input type="email" value="" name="EMAIL" class="email" placeholder="Tu email" required>
+            <input type="submit" value="Suscribirse" name="subscribe">
+        </div>
+    </form>
+</div>
+
+<!-- Cómo obtener los datos:
+    1. Ve a https://mailchimp.com
+    2. Crea una lista
+    3. Ve a Forms → Signup form → Embedded forms
+    4. Copia el código HTML
+    5. Adapta los valores YOUR_LIST, YOUR_USER_ID, YOUR_LIST_ID
+-->
+
+
+<!-- ==========================================
+     11. GOOGLE RECAPTCHA (ANTI-SPAM)
+     ========================================== -->
+
+<!-- Añade esto al <head> de index.html -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Añade esto al formulario de index.html -->
+<div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+
+<!-- Valida en JavaScript -->
+<script>
+    document.getElementById('auditForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const recaptchaResponse = grecaptcha.getResponse();
+        
+        if (recaptchaResponse.length === 0) {
+            alert('Por favor, completa el reCAPTCHA');
+            return false;
+        }
+        
+        // Si pasó recaptcha, enviar el formulario
+        console.log('Formulario válido!');
+    });
+</script>
+
+<!-- Cómo configurar:
+    1. Ve a https://www.google.com/recaptcha/admin
+    2. Registra tu sitio
+    3. Obtén Site Key y Secret Key
+    4. Reemplaza YOUR_RECAPTCHA_SITE_KEY
+-->
+
+
+<!-- ==========================================
+     12. SLACK (NOTIFICACIONES)
+     ========================================== -->
+
+<!-- JavaScript para enviar notificaciones a Slack -->
+<script>
+    function notifySlack(formData) {
+        const message = {
+            text: `Nueva solicitud de auditoría`,
+            blocks: [
+                {
+                    type: "section",
+                    text: {
+                        type: "mrkdwn",
+                        text: `*Nuevo lead!*\n*Nombre:* ${formData.name}\n*Empresa:* ${formData.company}\n*Teléfono:* ${formData.phone}`
+                    }
+                }
+            ]
+        };
+        
+        fetch('YOUR_WEBHOOK_URL', {
+            method: 'POST',
+            body: JSON.stringify(message)
+        });
+    }
+</script>
+
+<!-- Cómo configurar:
+    1. Ve a tu workspace de Slack
+    2. Settings → Integrations → Incoming Webhooks
+    3. Crea un webhook
+    4. Obtén la URL
+    5. Reemplaza YOUR_WEBHOOK_URL
+    6. Llama notifySlack() cuando se envíe el formulario
+-->
+
+
+<!-- ==========================================
+     RESUMEN DE INTEGRACIONES
+     ========================================== -->
+
+/*
+ANALYTICS:
+  ✅ Google Analytics - Gratis, mejor opción
+  ✅ Hotjar - Heatmaps, gratis hasta 35k sesiones
+  ✅ Plausible - Simple y privado, de pago
+
+FORMULARIOS:
+  ✅ Formspree - Gratis, fácil (RECOMENDADO)
+  ✅ Basin - Gratis y sin registration
+  ✅ Typeform - Bonito pero limitado en gratis
+  ✅ Mailchimp - Para newsletter
+
+CHAT:
+  ✅ Intercom - Profesional, de pago
+  ✅ Drift - Conversational, de pago
+  ✅ Tawk - Gratis y sencillo
+
+PAGOS:
+  ✅ Stripe - Mejor para Europa
+  ✅ PayPal - Para algunos países
+  ✅ Mangopay - Para Europa
+
+WHATSAPP:
+  ✅ WhatsApp Business API - Oficial pero complejo
+  ✅ Twilio - Fácil pero de pago
+  ✅ Links simples - Lo que hemos hecho (gratis)
+
+PRIORIDAD:
+  1. Google Analytics (gratis)
+  2. Formspree (gratis)
+  3. Hotjar (gratis hasta 35k sesiones)
+  4. Stripe o PayPal (si cobras)
+
+*/
+
+
+<!-- ==========================================
+     ORDEN DE IMPLEMENTACIÓN
+     ========================================== -->
+
+/*
+SEMANA 1 - ESENCIAL:
+  1. ✅ Publicar en Netlify/Vercel
+  2. ✅ Google Analytics
+  3. ✅ Formspree o Basin para formularios
+
+SEMANA 2 - MEJORAS:
+  1. ✅ Hotjar para ver comportamiento
+  2. ✅ WhatsApp Business o Twilio
+  3. ✅ Facebook Pixel
+
+SEMANA 3+:
+  1. ✅ Mailchimp para newsletter
+  2. ✅ Stripe/PayPal para cobrar
+  3. ✅ Chat en vivo (Intercom, Drift)
+  4. ✅ CRM (Pipedrive, HubSpot)
+
+*/
