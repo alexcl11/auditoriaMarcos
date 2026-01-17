@@ -6,7 +6,7 @@ class SolarAuditApp {
 
     init() {
         this.setupEventListeners();
-        this.setupIntersectionObserver();
+        // this.setupIntersectionObserver(); // Lazy loading deshabilitado
         this.initializeAnimations();
     }
 
@@ -116,17 +116,24 @@ class SolarAuditApp {
         const answer = faqItem.querySelector('.faq-answer');
         const icon = button.querySelector('span');
 
-        // Close other open FAQs
+        // Close other open FAQs instantly
         document.querySelectorAll('.faq-item .faq-answer:not(.hidden)').forEach(openAnswer => {
             if (openAnswer !== answer) {
+                // Remove transition temporarily
+                openAnswer.style.transition = 'none';
                 openAnswer.classList.add('hidden');
                 openAnswer.closest('.faq-item').querySelector('span').textContent = '+';
+                // Re-enable transition
+                setTimeout(() => { openAnswer.style.transition = ''; }, 0);
             }
         });
 
-        // Toggle current FAQ
+        // Toggle current FAQ instantly
+        answer.style.transition = 'none';
         answer.classList.toggle('hidden');
         icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+        // Re-enable transition
+        setTimeout(() => { answer.style.transition = ''; }, 0);
     }
 
     handleAnchorClick(e) {
@@ -156,24 +163,7 @@ class SolarAuditApp {
     }
 
     setupIntersectionObserver() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements
-        document.querySelectorAll('.card-hover, section').forEach(el => {
-            observer.observe(el);
-        });
+        // Intersection observer deshabilitado - carga todo al instante
     }
 
     initializeAnimations() {
